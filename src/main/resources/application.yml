@@ -2,7 +2,7 @@ demo:
   uploadPath: /opt/
 spring:
   profiles:
-    active: dev
+    active: test
   cache:
     type: redis
   redis:
