@@ -2,6 +2,7 @@ package com.cn.springbootutil.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cn.springbootutil.common.result.Result;
 import com.cn.springbootutil.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -37,4 +38,12 @@ public interface IUserService extends IService<User> {
      * @return
      */
     IPage<User> selectPageVo(Page<User> page, int i);
+
+    /**
+     * 登录校验
+     * @param userId
+     * @param password
+     * @return
+     */
+    Result login(Integer userId, String password);
 }

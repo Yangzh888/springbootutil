@@ -26,7 +26,7 @@ public class BeanUtil {
     {
 
         //创建Map集合对象
-        Map<String,Object> map=new HashMap<String, Object>();
+        Map<String,Object> map=new HashMap<String, Object>(16);
         //获取对象字节码信息,不要Object的属性
         BeanInfo beanInfo = Introspector.getBeanInfo(bean.getClass(),Object.class);
         //获取bean对象中的所有属性
@@ -75,5 +75,11 @@ public class BeanUtil {
     public static Object  beans2Bean(Object s,Object t){
         BeanUtils.copyProperties(s,t);
         return t;
+    }
+    public static Boolean isEmpty(Object o){
+        return null==o?true:false;
+    }
+    public static Boolean isNotEmpty(Object o){
+        return !isEmpty(o);
     }
 }

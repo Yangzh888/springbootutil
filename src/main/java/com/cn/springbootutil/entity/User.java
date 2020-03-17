@@ -1,12 +1,9 @@
 package com.cn.springbootutil.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-
-import java.io.Serializable;
-import java.time.LocalDate;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.cn.springbootutil.common.entity.BasicDO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
@@ -15,8 +12,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * @author YZH
@@ -53,21 +50,22 @@ public class User extends BasicDO implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "登录账户不能为空")
     @ApiModelProperty(value = "用户名")
     @TableField("USERNAME")
     private String username;
 
 
-    @ApiModelProperty(value = "id",example = "1")
+    @ApiModelProperty(value = "id")
     @TableId(value = "ID", type = IdType.AUTO)
     private Integer id;
 
+    @NotNull(message = "密码不能为空")
     @ApiModelProperty(value = "密码")
-    @TableField("PASSWROD")
-    private String passwrod;
+    @TableField("PASSWORD")
+    private String password;
 
-    @ApiModelProperty(value = "登录账户" ,example = "1")
+    @NotNull(message = "登录账户不能为空")
+    @ApiModelProperty(value = "登录账户" )
     @TableField("USER_ID" )
     private Integer userId;
 

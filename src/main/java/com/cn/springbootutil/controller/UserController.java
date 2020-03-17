@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cn.springbootutil.common.result.Result;
 import com.cn.springbootutil.common.result.ResultCodeEnum;
 import com.cn.springbootutil.common.result.ResultData;
+import com.cn.springbootutil.common.token.JwtToken;
 import com.cn.springbootutil.entity.User;
 import com.cn.springbootutil.service.IUserService;
 import io.swagger.annotations.Api;
@@ -49,9 +50,8 @@ public class UserController {
     })
     @RequestMapping("/login")
     public Result login(@Validated User user) {
-        System.out.println("测试接口");
-        user.getUsername();
-        return Result.ok();
+        Result result = userService.login(user.getUserId(), user.getPassword());
+        return result ;
     }
 
     /**

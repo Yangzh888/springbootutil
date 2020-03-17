@@ -49,7 +49,11 @@ public class BaseExceptionController {
         e.printStackTrace();
         return Result.error("服务器错误");
     }
-
+    @ExceptionHandler(BusinessException.class)
+    public Result errorBusiness(BusinessException e){
+        e.printStackTrace();
+        return Result.error(e.getMessage());
+    }
     /**
      *     处理Get请求中 使用@Valid 验证路径中请求实体校验失败后抛出的异常，详情继续往下看代码
      */
